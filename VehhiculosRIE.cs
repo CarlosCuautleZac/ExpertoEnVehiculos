@@ -16,86 +16,108 @@ namespace ExpertoEnVehiculos
         {
             RuleInferenceEngine rie = new RuleInferenceEngine();
 
-            Rule rule = new Rule("Bicycle");
-            rule.AddAntecedent(new IsClause("vehicleType", "cycle"));
-            rule.AddAntecedent(new IsClause("num_wheels", "2"));
-            rule.AddAntecedent(new IsClause("motor", "no"));
-            rule.setConsequent(new IsClause("vehicle", "Bicycle"));
-            rie.AddRule(rule);
+            // Revolver
+            Rule ruleRevolver = new Rule("Revolver");
+            ruleRevolver.AddAntecedent(new IsClause("rango", "Corto a Mediano"));
+            ruleRevolver.AddAntecedent(new IsClause("mecanismo", "Rotativo (cilindro giratorio)"));
+            ruleRevolver.AddAntecedent(new IsClause("tamaño", "Variable"));
+            ruleRevolver.AddAntecedent(new IsClause("propósito", "Autodefensa personal"));
+            ruleRevolver.setConsequent(new IsClause("Arma de fuego", "Revolver"));
+            rie.AddRule(ruleRevolver);
 
-            rule = new Rule("Tricycle");
-            rule.AddAntecedent(new IsClause("vehicleType", "cycle"));
-            rule.AddAntecedent(new IsClause("num_wheels", "3"));
-            rule.AddAntecedent(new IsClause("motor", "no"));
-            rule.setConsequent(new IsClause("vehicle", "Tricycle"));
-            rie.AddRule(rule);
+            // Pistolas
+            Rule rulePistolas = new Rule("Pistolas");
+            rulePistolas.AddAntecedent(new IsClause("rango", "Corto a Mediano"));
+            rulePistolas.AddAntecedent(new IsClause("mecanismo", "Semiautomático"));
+            rulePistolas.AddAntecedent(new IsClause("tamaño", "Variable"));
+            rulePistolas.AddAntecedent(new IsClause("propósito", "Autodefensa personal"));
+            rulePistolas.setConsequent(new IsClause("Arma de fuego", "Pistolas"));
+            rie.AddRule(rulePistolas);
 
-            rule = new Rule("Motorcycle");
-            rule.AddAntecedent(new IsClause("vehicleType", "cycle"));
-            rule.AddAntecedent(new IsClause("num_wheels", "2"));
-            rule.AddAntecedent(new IsClause("motor", "yes"));
-            rule.setConsequent(new IsClause("vehicle", "Motorcycle"));
-            rie.AddRule(rule);
+            // Carabinas
+            Rule ruleCarabinas = new Rule("Carabinas");
+            ruleCarabinas.AddAntecedent(new IsClause("rango", "Mediano a Largo"));
+            ruleCarabinas.AddAntecedent(new IsClause("mecanismo", "Semiautomático o Automático"));
+            ruleCarabinas.AddAntecedent(new IsClause("tamaño", "Variable"));
+            ruleCarabinas.AddAntecedent(new IsClause("propósito", "Versatilidad táctica"));
+            ruleCarabinas.setConsequent(new IsClause("Arma de fuego", "Carabinas"));
+            rie.AddRule(ruleCarabinas);
 
-            rule = new Rule("SportsCar");
-            rule.AddAntecedent(new IsClause("vehicleType", "automobile"));
-            rule.AddAntecedent(new IsClause("size", "medium"));
-            rule.AddAntecedent(new IsClause("num_doors", "2"));
-            rule.setConsequent(new IsClause("vehicle", "Sports_Car"));
-            rie.AddRule(rule);
+            // Rifles
+            Rule ruleRifles = new Rule("Rifles");
+            ruleRifles.AddAntecedent(new IsClause("rango", "Mediano a Largo"));
+            ruleRifles.AddAntecedent(new IsClause("mecanismo", "Variable"));
+            ruleRifles.AddAntecedent(new IsClause("tamaño", "Largo"));
+            ruleRifles.AddAntecedent(new IsClause("propósito", "Precisión a larga distancia"));
+            ruleRifles.setConsequent(new IsClause("Arma de fuego", "Rifles"));
+            rie.AddRule(ruleRifles);
 
-            rule = new Rule("Sedan");
-            rule.AddAntecedent(new IsClause("vehicleType", "automobile"));
-            rule.AddAntecedent(new IsClause("size", "medium"));
-            rule.AddAntecedent(new IsClause("num_doors", "4"));
-            rule.setConsequent(new IsClause("vehicle", "Sedan"));
-            rie.AddRule(rule);
+            // Fusiles
+            Rule ruleFusiles = new Rule("Fusiles");
+            ruleFusiles.AddAntecedent(new IsClause("rango", "Mediano a Largo"));
+            ruleFusiles.AddAntecedent(new IsClause("mecanismo", "Variable"));
+            ruleFusiles.AddAntecedent(new IsClause("tamaño", "Largo"));
+            ruleFusiles.AddAntecedent(new IsClause("propósito", "Combate táctico"));
+            ruleFusiles.setConsequent(new IsClause("Arma de fuego", "Fusiles"));
+            rie.AddRule(ruleFusiles);
 
-            rule = new Rule("MiniVan");
-            rule.AddAntecedent(new IsClause("vehicleType", "automobile"));
-            rule.AddAntecedent(new IsClause("size", "medium"));
-            rule.AddAntecedent(new IsClause("num_doors", "3"));
-            rule.setConsequent(new IsClause("vehicle", "MiniVan"));
-            rie.AddRule(rule);
+            // Subametralladoras
+            Rule ruleSubametralladoras = new Rule("Subametralladoras");
+            ruleSubametralladoras.AddAntecedent(new IsClause("rango", "Corto a Mediano"));
+            ruleSubametralladoras.AddAntecedent(new IsClause("mecanismo", "Automático"));
+            ruleSubametralladoras.AddAntecedent(new IsClause("tamaño", "Variable"));
+            ruleSubametralladoras.AddAntecedent(new IsClause("propósito", "Combate cercano"));
+            ruleSubametralladoras.setConsequent(new IsClause("Arma de fuego", "Subametralladoras"));
+            rie.AddRule(ruleSubametralladoras);
 
-            rule = new Rule("SUV");
-            rule.AddAntecedent(new IsClause("vehicleType", "automobile"));
-            rule.AddAntecedent(new IsClause("size", "large"));
-            rule.AddAntecedent(new IsClause("num_doors", "4"));
-            rule.setConsequent(new IsClause("vehicle", "SUV"));
-            rie.AddRule(rule);
+            // Ametralladoras
+            Rule ruleAmetralladoras = new Rule("Ametralladoras");
+            ruleAmetralladoras.AddAntecedent(new IsClause("rango", "Mediano a Largo"));
+            ruleAmetralladoras.AddAntecedent(new IsClause("mecanismo", "Automático"));
+            ruleAmetralladoras.AddAntecedent(new IsClause("tamaño", "Variable"));
+            ruleAmetralladoras.AddAntecedent(new IsClause("propósito", "Sostenimiento de fuego"));
+            ruleAmetralladoras.setConsequent(new IsClause("Arma de fuego", "Ametralladoras"));
+            rie.AddRule(ruleAmetralladoras);
 
-            rule = new Rule("Cycle");
-            rule.AddAntecedent(new LessClause("num_wheels", "4"));
-            rule.setConsequent(new IsClause("vehicleType", "cycle"));
-            rie.AddRule(rule);
+            // Escopetas
+            Rule ruleEscopetas = new Rule("Escopetas");
+            ruleEscopetas.AddAntecedent(new IsClause("rango", "Corto a Mediano"));
+            ruleEscopetas.AddAntecedent(new IsClause("mecanismo", "Variable"));
+            ruleEscopetas.AddAntecedent(new IsClause("tamaño", "Variable"));
+            ruleEscopetas.AddAntecedent(new IsClause("propósito", "Versatilidad (caza, autodefensa)"));
+            ruleEscopetas.setConsequent(new IsClause("Arma de fuego", "Escopetas"));
+            rie.AddRule(ruleEscopetas);
 
-            rule = new Rule("Automobile");
-            rule.AddAntecedent(new IsClause("num_wheels", "4"));
-            rule.AddAntecedent(new IsClause("motor", "yes"));
-            rule.setConsequent(new IsClause("vehicleType", "automobile"));
-            rie.AddRule(rule);
+            // Francotirador
+            Rule ruleFrancotirador = new Rule("Francotirador");
+            ruleFrancotirador.AddAntecedent(new IsClause("rango", "Largo"));
+            ruleFrancotirador.AddAntecedent(new IsClause("mecanismo", "Variable"));
+            ruleFrancotirador.AddAntecedent(new IsClause("tamaño", "Largo"));
+            ruleFrancotirador.AddAntecedent(new IsClause("propósito", "Precisión a larga distancia"));
+            ruleFrancotirador.setConsequent(new IsClause("Arma de fuego", "Francotirador"));
+            rie.AddRule(ruleFrancotirador);
 
             return rie;
         }
 
-        public void ForwardChianing()
+        public void ForwardChaining()
         {
             RuleInferenceEngine rie = getInferenceEngine();
-            rie.AddFact(new IsClause("num_wheels", "4"));
-            rie.AddFact(new IsClause("motor", "yes"));
-            rie.AddFact(new IsClause("num_doors", "3"));
-            rie.AddFact(new IsClause("size", "medium"));
+            rie.AddFact(new IsClause("rango", "Largo"));
+            rie.AddFact(new IsClause("mecanismo", "Variable"));
+            rie.AddFact(new IsClause("tamaño", "Largo"));
+            rie.AddFact(new IsClause("propósito", "Precisión a larga distancia"));
 
             Console.WriteLine("before inference");
             Console.WriteLine("{0}", rie.Facts);
             Console.WriteLine("");
 
-            rie.Infer(); //forward chain
+            rie.Infer(); // Forward chain
 
-            Console.WriteLine("after inference");
+            Console.WriteLine("before inference");
             Console.WriteLine("{0}", rie.Facts);
             Console.WriteLine("");
         }
+
     }
 }
